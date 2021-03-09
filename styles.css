@@ -1,44 +1,66 @@
 body {
   margin: 0;
   padding: 0;
-  width: 100%;
   display: grid;
-  grid-template-columns: 25% 75%;
-  grid-template-areas: "sidebar content";
+  grid-template-columns: 20vw 80vw;
+  grid-template-areas: "navbar texts";
+  grid-column-gap: 0px;
 }
+
 #navbar {
-  grid-area: sidebar;
-  padding-left: 15px;
+  grid-area: navbar;
   position: fixed;
+  padding-left: 15px;
+  height: 100%;
+  display: inline-flex;
+  flex-direction:column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
 }
+body::before {
+  content: "";
+  background-color: aqua;
+  border-right: 1px solid black;
+  grid-area: navbar;
+}
+body::after {
+  content: "";
+  background-color: aqua;
+  border-right: 1px solid black;
+  grid-area: navbar;
+}
+
 #Kate_Docs {
-  display: flex;
+  max-width: 20vw;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
+  height: 70px;
   color: purple;
   font-size: 20px;
   font-style: italic;
-  height: 70px;
-  border-right: 1px solid black;
 }
 .nav-link {
-  display: flex;
+  max-width: 20vw;
+  height: 70px;
+  display: inline-flex;
   align-items: center;
-  height: 50px;
+  flex-wrap: wrap;
   text-decoration: none;
   list-style-type: none;
-  padding: 0;
-  margin: 0;
   font-size: 16px;
-  border-bottom: 1px solid black;
-  border-right: 1px solid black;
 }
 
 
 #main-doc {
-  grid-area: content;
-  border-left: 1px solid black;
+  grid-area: texts; 
   padding-left: 10px; 
+  padding-right: 10px; 
+  padding-top: 10px; 
+  border-left: 1px solid black;
+}
+.main-section {
+  padding-top: 20px;  
 }
 header {
   font-size: 30px;
@@ -50,5 +72,15 @@ code {
   display: block;
   padding: 20px;
   background-color: grey;
-  
+}
+@media (max-width: 450px) {
+  body {
+    grid-template-columns: 25vw 72vw; 
+  }
+  header {
+    font-size: 20px;
+  }
+  p {
+    font-size: 15px;
+  } 
 }
